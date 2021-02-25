@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-<<<<<<< HEAD
 APP_ROOT = File.expand_path('..', __dir__)
 Dir.chdir(APP_ROOT) do
   yarn = ENV["PATH"].split(File::PATH_SEPARATOR).
@@ -7,28 +6,11 @@ Dir.chdir(APP_ROOT) do
     product(["yarn", "yarn.cmd", "yarn.ps1"]).
     map { |dir, file| File.expand_path(file, dir) }.
     find { |file| File.executable?(file) }
-=======
-# frozen_string_literal: true
-
-APP_ROOT = File.expand_path('..', __dir__)
-Dir.chdir(APP_ROOT) do
-  yarn = ENV['PATH'].split(File::PATH_SEPARATOR)
-                    .reject { |dir| File.expand_path(dir) == __dir__ }
-                    .product(['yarn', 'yarn.cmd', 'yarn.ps1'])
-                    .map { |dir, file| File.expand_path(file, dir) }
-                    .find { |file| File.executable?(file) }
->>>>>>> static-page-desgin
-
   if yarn
     exec yarn, *ARGV
   else
-<<<<<<< HEAD
     $stderr.puts "Yarn executable was not detected in the system."
     $stderr.puts "Download Yarn at https://yarnpkg.com/en/docs/install"
-=======
-    warn 'Yarn executable was not detected in the system.'
-    warn 'Download Yarn at https://yarnpkg.com/en/docs/install'
->>>>>>> static-page-desgin
     exit 1
   end
 end
