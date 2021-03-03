@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require toastr
+ *= require bootstrap
  */
 @import "../stylesheets/bootstrap.min.css"
  .login-regis{
@@ -20,3 +21,10 @@
   font-weight: 600
  }
 
+ .card{
+  height: auto!important;
+}
+
+.login-btn{
+   background-color: yellow
+}

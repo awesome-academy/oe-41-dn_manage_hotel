@@ -38,4 +38,9 @@ class Booking < ApplicationRecord
 
     errors.add :end_date, I18n.t("validation_end_date")
   end
+
+  scope :room_in_booking, (lambda do
+    select("room_id")
+    .where("deleted=0")
+  end)
 end

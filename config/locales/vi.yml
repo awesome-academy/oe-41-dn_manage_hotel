@@ -39,3 +39,23 @@ vi:
   created_success: "Đặt phòng thành công"
   created_failed: "Đặt phòng thất bại"
   booking_date_exist: "Thời gian đặt đã tồn tại"
+  activerecord:
+    attributes:
+      user:
+        role:
+          customer: "Khách hàng"
+          admin: "Quản trị viên "
+          staff: "Nhân viên"
+  role: "Quyền"
+  status: "Trạng thái"
+  action: "Hành động"
+  delete: "Xóa"
+  active: "hoạt động"
+  admin: "Quản trị viên"
+  staff: "Nhân viên"
+  customer: "Khách hàng"
+  users_management: "Quản lý nhân viên"
+  search_for: "Tìm kiếm:"
+  search: "Tìm kiếm"
+  dashboard: "Bảng điều khiển"
+  room_list: "Danh sách phòng"

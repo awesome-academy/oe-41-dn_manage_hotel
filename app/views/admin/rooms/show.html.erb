@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary" style="display: flex;justify-content: space-between;">
+        <h4 class="card-title ">- Room Management -</h4>
+        <button style="border-radius: 3rem; font-size: 10px" class="btn btn-success">
+          <%= link_to t("add_new_room +"), root_path %>
+        </button>
+      </div>
+      <div class="card-body">
+        <% unless @rooms.empty? %>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  ID
+                </th>
+                <th>
+                  Image
+                </th>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Price
+                </th>
+                <th>
+                  Descripton
+                </th>
+                <th>
+                  Action
+                </th>
+              </thead>
+              <tbody>
+                <% @rooms.each do |r| %>
+                  <tr>
+                    <td>
+                      <%= r.id %>
+                    </td>
+                    <td>
+                      <%= image_tag r.image, class: "image-list" %>
+                    </td>
+                    <td>
+                      <%= r.name %>
+                    </td>
+                    <td>
+                      <%= r.price %>
+                    </td>
+                    <td>
+                      <%= r.description %>
+                    </td>
+                    <td class="text-primary">
+                      <%= t "action" %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <% else %>
+          <h1><%= t ("now_not_have_room_in_booking") %></h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

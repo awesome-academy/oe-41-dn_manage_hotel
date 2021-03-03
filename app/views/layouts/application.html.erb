@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbolinks-track": "reload" %>
   <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <div id="flash" style="position: absolute;" class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
   <%= render "shared/header" %>
-  <%= yield %>
+    <%= yield %>
   <%= render "shared/footer" %>
 </body>
 </html>

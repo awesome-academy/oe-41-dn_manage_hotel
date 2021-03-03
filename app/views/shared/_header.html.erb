@@ -58,12 +58,32 @@
                       <i class="fa fa-instagram"></i>
                     </a>
                   </li>
+                    <% if logged_in? %>
+                     <li>
+                      <div class="main-menu  d-none d-lg-block">
+                        <nav>
+                          <ul id="navigation">
+                            <li>
+                              <a href="#" class="login-regis"><%=current_user.name%>
+                                <i class="ti-angle-down"></i></a>
+                              <ul class="submenu">
+                                <li><%= link_to t("profile"), root_path %></li>
+                                <li><%= link_to t("booked"), root_path %></li>
+                                <li><%= link_to t("logout"), logout_path %></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </li>
+                    <% else %>
                   <li>
                     <%= link_to t("login"),login_path,class: "login-regis" %>
                   </li>
-                   <li>
+                  <li>
                     <%= link_to t("register"), signup_path,class: "login-regis" %>
                   </li>
+                    <% end %>
                 </ul>
               </div>
             </div>

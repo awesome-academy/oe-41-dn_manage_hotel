@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   enum role: {customer: 0, admin: 1, staff: 2}
   validates :name, presence: true
@@ -16,4 +18,9 @@ class User < ApplicationRecord
   def downcase_email
     email.downcase!
   end
+
+  scope :search, (lambda do |param|
+    select("*")
+    .where("email LIKE ?", "%#{param}%")
+  end)
 end

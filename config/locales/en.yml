@@ -34,4 +34,17 @@ en:
   created_success: "Create success"
   created_failed: "Create failed"
   booking_date_exist: "Booking date exist"
-
+  activerecord:
+    attributes:
+      user:
+        role:
+          customer: "Customer"
+          Admin: "Admin"
+          Staff: "Staff"
+  users_management: "User management"
+  search_for: "Search for:"
+  search: "Search"
+  dashboard: "Dashboard"
+  admin: "Admin"
+  customer: "Customer"
+  staff: "Staff"

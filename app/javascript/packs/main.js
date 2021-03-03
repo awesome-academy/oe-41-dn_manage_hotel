@@ -317,7 +317,14 @@ $(document).ready(function() {
 	});
 });
 
+<<<<<<< HEAD
 //------- Mailchimp js --------//
+=======
+
+
+//------- Mailchimp js --------//
+
+>>>>>>> admin-desgin
 function mailChimp() {
   $('#mc_embed_signup').find('form').ajaxChimp();
 }

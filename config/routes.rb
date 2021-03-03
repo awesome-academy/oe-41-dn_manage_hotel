@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   scope "(:locale)", locale: /en|vi/ do
     root to: "static_pages#home"
     get "/signup", to: "users#new"
@@ -12,5 +13,9 @@ Rails.application.routes.draw do
     end
     get "static_pages/about"
     get "static_pages/gallery"
+    namespace :admin do
+      root to: "dashboards#index"
+      get "/rooms", to: "rooms#show"
+    end
   end
 end
