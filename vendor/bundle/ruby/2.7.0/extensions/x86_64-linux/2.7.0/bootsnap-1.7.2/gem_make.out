@@ -1,0 +1,15 @@
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.2/ext/bootsnap
+/home/computer/.rbenv/versions/2.7.0/bin/ruby -I /home/computer/.rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20210309-1595-1sud8e9.rb extconf.rb
+creating Makefile
+
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.2/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.2/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.2/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20210309-1595-64zr0y/bootsnap

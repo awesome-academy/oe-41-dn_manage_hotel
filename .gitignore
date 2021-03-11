@@ -41,15 +41,11 @@ yarn-debug.log*
 !/storage/.keep
 
 #custom
-.rubocop.yml
-.rubocop_disabled.yml
-.rubocop_enabled.yml
 .framgia-ci.yml
 .framgia-ci-result.temp.yml
 .framgia-ci-reports
 config/database.yml
 config/credentials.yml.enc
-/spec/*
 
 config/settings.local.yml
 config/settings/*.local.yml

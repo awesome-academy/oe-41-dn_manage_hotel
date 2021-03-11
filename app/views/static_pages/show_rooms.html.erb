@@ -23,7 +23,7 @@
         <div class="col-xl-3 col-md-3">
           <div class="single_offers">
             <div class="about_thumb">
-              <%= image_tag r.image, alt: "", class: "img-room-home" %>
+              <%= image_tag r.image || "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png", alt: "", class: "img-room-home" %>
             </div>
             <h3>Up to 35% savings on Club <br>rooms and Suites</h3>
             <ul>
@@ -32,7 +32,7 @@
               <li>3 Adults & 2 Children size</li>
               <li>Sea view side</li>
             </ul>
-            <a href="#" class="book_now">book now</a>
+            <%= link_to "book now", new_room_booking_path(room_id: r.id, date_start: params[:date_start], date_end: params[:date_end] ), class: "book_now"%>
           </div>
         </div>
       <% end %>

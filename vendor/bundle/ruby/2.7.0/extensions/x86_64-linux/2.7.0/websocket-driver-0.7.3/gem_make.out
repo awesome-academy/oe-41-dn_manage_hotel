@@ -1,0 +1,15 @@
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+/home/computer/.rbenv/versions/2.7.0/bin/ruby -I /home/computer/.rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20210309-1595-11fd4sz.rb extconf.rb
+creating Makefile
+
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/computer/Desktop/oe-41-dn_manage_hotel/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20210309-1595-p2evrv

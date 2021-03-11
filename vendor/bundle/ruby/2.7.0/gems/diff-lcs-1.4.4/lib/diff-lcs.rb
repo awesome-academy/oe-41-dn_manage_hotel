@@ -1,0 +1,3 @@
+
+
+require 'diff/lcs'

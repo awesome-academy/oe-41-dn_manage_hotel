@@ -1,59 +1,62 @@
 <% provide :title, t("register") %>
 <% provide(:button_text, t("submit")) %>
-<div class="container">
-  <div class="d-flex justify-content-center h-100">
-    <div class="card" style="height: 507px; margin-top: 8rem">
-      <div class="card-header">
-        <h3><%= t("register")%></h3>
-      </div>
-      <div class="card-body">
-        <%= form_for @user, url: signup_path do |f| %>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-user"></i></span>
+<div style="background-image: url('/img/banner/banner.png'); height: 700px">
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card" style="height: auto; margin-top: 10rem">
+        <div class="card-header">
+          <h3><%= t("register")%></h3>
+        </div>
+        <div class="card-body">
+          <%= form_for @user, url: signup_path do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+              </div>
+              <%= f.text_field :name, class: "form-control",placeholder: t("name")  %>
             </div>
-            <%= f.text_field :name, class: "form-control",placeholder: t("name")  %>
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+              </div>
+              <%= f.text_field :email, class: "form-control",placeholder: t("email")  %>
             </div>
-            <%= f.text_field :email, class: "form-control",placeholder: t("email")  %>
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-key"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-key"></i></span>
+              </div>
+              <%= f.password_field :password, class: "form-control",placeholder: t("password") %>
             </div>
-            <%= f.password_field :password, class: "form-control",placeholder: t("password") %>
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-repeat"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-repeat"></i></span>
+              </div>
+              <%= f.password_field :password_confirmation, class: "form-control",placeholder: t("confirmation") %>
             </div>
-            <%= f.password_field :password_confirmation, class: "form-control",placeholder: t("confirmation") %>
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-birthday-cake"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-birthday-cake"></i></span>
+              </div>
+              <%= f.text_field :birthday, class: "form-control",placeholder: t("birthday")  %>
             </div>
-            <%= f.text_field :birthday, class: "form-control",placeholder: t("birthday")  %>
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-address-book"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-address-book"></i></span>
+              </div>
+              <%= f.text_field :address, class: "form-control",placeholder: t("address")  %>
             </div>
-            <%= f.text_field :address, class: "form-control",placeholder: t("address")  %>
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+              </div>
+              <%= f.text_field :id_card, class: "form-control",placeholder: t("id_card")  %>
             </div>
-            <%= f.text_field :id_card, class: "form-control",placeholder: t("id_card")  %>
-          </div>
-          <div class="form-group">
-            <%= f.submit yield(:button_text), class: "btn float-right login_btn" %>
-          </div>
-        <% end %>
+            <div class="form-group">
+              <%= f.submit yield(:button_text), class: "btn float-right login_btn" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

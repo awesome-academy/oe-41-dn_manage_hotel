@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+
+require 'bootsnap/cli'
+exit Bootsnap::CLI.new(ARGV).run

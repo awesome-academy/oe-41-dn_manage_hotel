@@ -10,7 +10,7 @@
 </head>
 <body>
   <% flash.each do |key, value| %>
-    <div id="flash" class="alert alert-<%= key %>"><%= value %></div>
+    <div id="flash" style="position: absolute;" class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
   <%= render "shared/header" %>
   <%= yield %>

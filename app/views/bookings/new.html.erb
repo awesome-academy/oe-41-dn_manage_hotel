@@ -1,0 +1,62 @@
+<% provide :title, t("booking") %>
+<% provide(:button_text, t("book")) %>
+<div class="nav-booking"></div>
+<div class="container">
+  <div style="display: flex;">
+    <i style="margin-right: 10px;margin-top: 13px" class="fa fa-hand-o-right "></i>
+    <h1><%= t("booking_room")%></h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4" style="margin-top: 50px">
+     <div class="single_offers">
+      <div class="about_thumb">
+        <%= image_tag @room.image ||= "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png", alt: "", class: "img-room-home" %>
+      </div>
+      <h3>Up to 35% savings on Club <br>rooms and Suites</h3>
+      <ul>
+        <li><%= @room.name %></li>
+        <li>Luxaries condition</li>
+        <li>3 Adults & 2 Children size</li>
+        <li>Sea view side</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-5">
+    <%= form_for([:room, @booking]) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.label :start_date, t("sdate"), class: "label-booking" %>
+          <%= f.date_field :start_date,value: @date_start, class: "form-control" %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :end_date, t("edate"), class: "label-booking" %>
+          <%= f.date_field :end_date,value: @date_end, class: "form-control" %>
+        </div>
+      </div>
+      <%= f.fields_for :customer do |add| %>
+        <div class="form-group">
+          <%= add.label :name, t("name_cus"), class: "label-booking" %>
+          <%= add.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= add.label :birthday, t("birthday"), class: "label-booking" %>
+          <%= add.date_field :birthday, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= add.label :address, t("address"), class: "label-booking" %>
+          <%= add.text_field :address, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= add.label :id_card, t("id_card"), class: "label-booking" %>
+          <%= add.text_field :id_card, class: "form-control" %>
+        </div>
+      <%= f.hidden_field :room_id, value: @room.id%>
+    <% end %>
+    <%= f.submit yield(:button_text), class: "btn float-right login_btn" %>
+    <% end %>
+  </div>
+</div>
+
+

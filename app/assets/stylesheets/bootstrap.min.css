@@ -5178,11 +5178,13 @@ tbody.collapse.show {
 }
 
 .alert {
-    position: relative;
+    position: absolute;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
     border: 1px solid transparent;
-    border-radius: .25rem
+    border-radius: .25rem ;
+    margin-top: 130px;
+    margin-left: 77%
 }
 
 .alert-heading {

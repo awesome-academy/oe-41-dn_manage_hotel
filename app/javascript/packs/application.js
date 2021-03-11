@@ -1,3 +1,5 @@
+//= require jquery
+//= require jquery_ujs
 import "../stylesheets/application.scss"
 import "popper.js"
 import "jquery"
@@ -8,6 +10,9 @@ require("packs/jquery.magnifig-popup.min")
 require("packs/jquery.slicknav.min")
 require("packs/jquery.validate.min")
 require("packs/jquery.scrollUp.min")
+require("@rails/ujs").start()
+require("bootstrap")
+require("jquery")
 require("packs/main")
 document.addEventListener("turbolinks:load", function() {
     $(function () {

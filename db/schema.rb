@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 2021_02_25_015520) do
     t.date "end_date"
     t.integer "status", default: 0
     t.integer "deleted", default: 0
+    t.bigint "room_id", null: false
     t.bigint "user_id", null: false
     t.bigint "customer_id", null: false
-    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_015520) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "room_types", charset: "utf8mb4", force: :cascade do |t|
+  create_table "room_types", charset: "latin1", force: :cascade do |t|
     t.string "name"
     t.integer "deleted", default: 0
     t.datetime "created_at", precision: 6, null: false
