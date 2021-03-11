@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     get "static_pages/gallery"
     get "/user/booked", to: "bookings#index"
     post "/user/booked", to: "bookings#cancel_booked"
+    get "/user/profile", to: "users#profile"
+    get "/user/profile/edit", to: "users#edit"
+    patch "/user/profile/edit", to: "users#update"
     namespace :admin do
        root to: "rooms#show"
        get "/rooms/new", to: "rooms#new"

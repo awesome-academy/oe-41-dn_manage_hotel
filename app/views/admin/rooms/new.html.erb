@@ -16,8 +16,8 @@
     <%= f.text_field :description, class: "form-control" %>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1"><%= t "room_type" %></label>
+    <label for="exampleInputPassword1" style="margin-right: 10px"><%= t "room_type" %></label>
    <%= f.collection_select :room_type_id, @room_types, :id, :name, prompt: true, class: "form-control select-box"%>
   </div>
-  <%= f.submit t"create_new_room", class: "btn btn-primary" %>
+  <%= f.submit t("create_new_room"), class: "btn btn-primary" %>
 <% end %>

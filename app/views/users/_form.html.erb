@@ -1,0 +1,43 @@
+<% provide(:button_text, t("update")) %>
+<%= form_for @user, url: user_profile_edit_path, method: :patch do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <label><%= t "name" %></label>
+    </div>
+    <div class="col-md-6">
+      <p> <%= f.text_field :name %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label><%= t "email" %></label>
+    </div>
+    <div class="col-md-6">
+      <p> <%= f.text_field :email%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label><%= t "birthday" %></label>
+    </div>
+    <div class="col-md-6">
+      <p> <%= f.text_field :birthday%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label><%= t "address" %></label>
+    </div>
+    <div class="col-md-6">
+      <p> <%= f.text_field :address%></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+      <p> <%= f.submit yield(:button_text), class: "btn btn-warning"%></p>
+    </div>
+  </div>
+<% end %>

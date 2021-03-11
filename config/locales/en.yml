@@ -57,3 +57,8 @@ en:
   customer: "Customer"
   staff: "Staff"
   sowething_was_wrong_in_form: "Some thing was wrong in form"
+  update_success: "Update success"
+  edit_profile: "Edit profile"
+  about: "About"
+  update: "Update"
+  create_new_room: "Create new room"

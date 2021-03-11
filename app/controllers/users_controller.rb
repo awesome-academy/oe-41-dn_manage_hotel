@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :load_user
+  before_action :check_edit, only: %i(profile update)
+
   def new
     @user = User.new
   end
@@ -14,15 +17,33 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update(user_params)
+      @check = true
+      flash.now[:success] = t "update_success"
+      render :profile
+    else
+      flash.now[:warning] = t "wrong_information"
+      render :edit
+    end
+  end
+
   def edit
-    params[:user] = current_user
+    render :profile
   end
 
   def profile
-    @user = current_user
   end
 
   private
+
+  def load_user
+    @user = current_user
+  end
+
+  def check_edit
+    @check = true
+  end
 
   def user_params
     params.require(:user).permit :name, :email, :password,

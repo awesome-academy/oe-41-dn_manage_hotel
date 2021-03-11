@@ -67,7 +67,7 @@
                             <a href="#" class="login-regis"><%=current_user.name%>
                               <i class="ti-angle-down"></i></a>
                             <ul class="submenu">
-                              <li><%= link_to t("profile"), root_path %></li>
+                              <li><%= link_to t("profile"), user_profile_path %></li>
                               <li><%= link_to t("booked"), root_path %></li>
                               <li><%= link_to t("logout"), logout_path %></li>
                             </ul>

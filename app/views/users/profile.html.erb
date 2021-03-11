@@ -1,0 +1,90 @@
+<div class="nav-user">
+</div>
+<div style="width: 100%; ">
+  <div class="container emp-profile" style="margin-top: 5rem; box-shadow: 3px 3px 3px 3px #000">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+            <div class="file btn btn-lg btn-primary">
+              <%= t "change_photo" %>
+              <input type="file" name="file"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h5>
+              <%=  @user.name %>
+            </h5>
+            <h6>
+              <%= @user.role%>
+            </h6>
+            <p class="proile-rating"><%= t "raking: " %><span>8/10</span></p>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><%= t "about" %></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <% if @check %>
+            <%= link_to t("edit_profile"), user_profile_edit_path, class: " btn btn-outline-primary" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work">
+
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <% if @check %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label><%= t "name" %></label>
+                  </div>
+                  <div class="col-md-6">
+                    <p> <%= @user.name%></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label><%= t "email" %></label>
+                  </div>
+                  <div class="col-md-6">
+                    <p><%= @user.email%></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label><%= t "birthday" %></label>
+                  </div>
+                  <div class="col-md-6">
+                    <p><%= @user.birthday%></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label><%= t "address" %></label>
+                  </div>
+                  <div class="col-md-6">
+                    <p><%= @user.address %></p>
+                  </div>
+                </div>
+              <% else %>
+                <%= render "users/form" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
