@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
   <title>HotelBootstrap</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-=======
-  <head>
-    <title>HotelBootstrap</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
->>>>>>> init
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="../admin/assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../admin/assets/demo/demo.css" rel="stylesheet" />
-<<<<<<< HEAD
 </head>
 
 <body class="dark-edition">
@@ -29,58 +19,36 @@
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
         Creative Tim
       </a></div>
-=======
-  </head>
-
-  <body class="dark-edition">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a></div>
->>>>>>> init
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
             <a class="nav-link" href="./dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
+              <i class="material-icons"><%= t("dashboard") %></i>
+              <p><%= t("dashboard") %></p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <i class="material-icons"><%= t("person") %></i>
+              <p><%= t("user_profile") %></p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
               <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <p><%= t("room_management") %></p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./typography.html">
               <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <p><%= t("user_management") %></p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
               <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+              <p><%= t("booking_management") %></p>
             </a>
           </li>
         </ul>
@@ -90,44 +58,6 @@
       <%= yield %>
     </div>
   </div>
-<<<<<<< HEAD
-</body>
-<script <img src="../admin/assets/js/core/jquery.min.js"></script>
-<script <img src="../admin/assets/js/core/popper.min.js"></script>
-<script <img src="../admin/assets/js/core/bootstrap-material-design.min.js"></script>
-<script src="https://unpkg.com/default-passive-events"></script>
-<script <img src="../admin/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chartist JS -->
-<script <img src="../admin/assets/js/plugins/chartist.min.js"></script>
-<!--  Notifications Plugin    -->
-<script <img src="../admin/assets/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script <img src="../admin/assets/js/material-dashboard.js?v=2.1.0"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script <img src="../admin/assets/demo/demo.js"></script>
-=======
-  <!--   Core JS Files   -->
-  <script src="../admin/assets/js/core/jquery.min.js"></script>
-  <script src="../admin/assets/js/core/popper.min.js"></script>
-  <script src="../admin/assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="https://unpkg.com/default-passive-events"></script>
-  <script <img src="../admin/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script <img src="../admin/assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script <img src="../admin/assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script <img src="../admin/assets/js/material-dashboard.js?v=2.1.0"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script <img src="../admin/assets/demo/demo.js"></script>
 </body>
    <script <img src="../admin/assets/js/core/jquery.min.js"></script>
   <script <img src="../admin/assets/js/core/popper.min.js"></script>
@@ -146,5 +76,4 @@
   <script <img src="../admin/assets/js/material-dashboard.js?v=2.1.0"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script <img src="../admin/assets/demo/demo.js"></script>
->>>>>>> init
 </html>
