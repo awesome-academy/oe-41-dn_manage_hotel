@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+.form_search{
+  padding-top: 11px;
+  box-shadow: 1px 1px 4px 1px;
+  height: 61px;
+  margin-bottom: 60px;
+  border-radius: 7px
+}
+.text-search{
+  width: 300px;
+  margin-right: 10px;
+  border-radius: 7px;
+  padding-left: 45px;
+  font-size: 18px
+}
+
+.rooms{
+  margin-bottom: 20px;
+}
+
+.paging{
+  margin-left: 475px
+}

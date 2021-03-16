@@ -26,14 +26,18 @@
       </div>
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">Room</a></li>
+          <li>
+            <%= link_to t("home"), root_path %>
+          </li>
+          <li>
+             <%= link_to t("rooms"), rooms_path %>
+          </li>
           <li><a href="packages.html">About</a></li>
           <li><a href="hotels.html">Contact</a></li>
           <li class="menu-has-children"><a href="">Language</a>
             <ul>
-              <li><a href="blog-home.html">Blog Home</a></li>
-              <li><a href="blog-single.html">Blog Single</a></li>
+              <li><%= link_to t("eng"), locale: :en %></li>
+              <li><%= link_to t("vie"), locale: :vi %></li>
             </ul>
           </li>
           <li><a href="packages.html">Login</a></li>
