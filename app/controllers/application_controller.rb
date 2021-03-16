@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
 
     I18n.locale = I18n.default_locale
   end
+
+  def current_date
+    @current_date = Time.zone.today
+  end
 end
