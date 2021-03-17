@@ -10,13 +10,22 @@ class BookingsController < ApplicationController
 
   def create
     @booking = current_user.bookings.new booking_params
-    sdate = params[:booking][:start_date]
-    edate = params[:booking][:end_date]
-    @bookings = Booking.check_can_book sdate, edate, @room
-    return save_booking if @bookings.blank?
+    if @booking.save
+      redirect_to bookings_path
+      flash[:success] = t "booking_success"
+    else
+      flash.now[:warning] = t "booked_date_error"
+      render :new
+    end
+  end
 
-    flash.now[:warning] = t "booked_date_error"
-    render :new
+  def index
+    temp = Booking.not_delete.sort_by_id.user_booking
+    @bookings = temp.paginate(page: params[:page], per_page: Settings.per_page)
+    return if @bookings
+
+    flash[:warning] = t "booking_not_found"
+    redirect_to rooms_path
   end
 
   private
@@ -30,17 +39,9 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :room_id,
+    params.require(:booking).permit(:start_date, :end_date,
                                     customer_attributes: [:name,
                                       :birthday, :address, :id_card])
-  end
-
-  def save_booking
-    if @booking.save
-      redirect_to rooms_path
-      flash[:success] = t "booking_success"
-    else
-      render :new
-    end
+          .merge(room_id: params[:room_id])
   end
 end

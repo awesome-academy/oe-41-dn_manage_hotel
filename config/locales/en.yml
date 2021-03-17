@@ -31,6 +31,8 @@ en:
   please_log_in: "Please log in"
   date_search_errors: "It looks like the date you input not true"
   room_not_found: "Room not found !"
+  my_booking: "My booking"
+  some_thing_wrong: "Some things wrong. Please check your input infomation again"
   activerecord:
     models:
       user: "User"

@@ -1,0 +1,45 @@
+<section class="banner_area">
+  <div class="booking_table d_flex align-items-center">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+      <div class="banner_content text-center">
+        <% provide :title, t("booking") %>
+        <% provide(:button_text, t("submit")) %>
+        <div style="">
+          <div class="container" style="margin-top: 4rem">
+            <% if @bookings.blank? %>
+              <h1><%= t "now_you_don_having_booking" %></h1>
+            <% else %>
+              <div class="row">
+                <div class="col-sm-12">
+                  <h3><%= t "my_booking" %></h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table class="table table-dark table_booking" style="opacity: 0.8; border-radius: 2rem; ">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="border: 0"><%= t "room_name" %></th>
+                        <th scope="col" style="border: 0"><%= t "start_date" %></th>
+                        <th scope="col" style="border: 0"><%= t "end_date" %></th>
+                        <th scope="col" style="border: 0"><%= t "status" %></th>
+                        <th scope="col" style="border: 0"><%= t "action" %></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%= render @bookings %>
+                    </tbody>
+                  </table>
+                  <%= will_paginate @bookings, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hotel_booking_area position">
+  </div>
+</section>
