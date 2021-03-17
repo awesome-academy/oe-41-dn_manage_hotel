@@ -14,4 +14,16 @@ class ApplicationController < ActionController::Base
   def current_date
     @current_date = Time.zone.today
   end
+
+  def logged_user?
+    return if logined?
+
+    redirect_to login_path
+    flash[:warning] = t "please_log_in"
+  end
+
+  def load_date_params
+    params[:start_date] ||= current_date
+    params[:end_date] ||= current_date
+  end
 end

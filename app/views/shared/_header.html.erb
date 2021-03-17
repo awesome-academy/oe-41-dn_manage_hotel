@@ -2,7 +2,7 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <a class="navbar-brand logo_h" href="index.html"><img src="image/Logo.png" alt=""></a>
+      <a class="navbar-brand logo_h" href="index.html"><img src="/image/Logo.png" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -20,8 +20,12 @@
               <%= t("languages") %>
             </a>
             <ul class="dropdown-menu">
-              <li class="nav-item"><%= link_to t("english"), locale: :en, class: "nav-link" %></li>
-              <li class="nav-item"><%= link_to t("vietnamese"), locale: :vi, class: "nav-link" %></li>
+              <li class="nav-item">
+                <%= link_to t("english"), locale: :en%>
+              </li>
+              <li class="nav-item">
+                <%= link_to t("vietnamese"), locale: :vi %>
+              </li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="contact.html"><%= t("contact") %></a></li>

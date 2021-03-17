@@ -20,3 +20,29 @@ en:
   not_empty: "can't be empty"
   compare_date: "must be smaller current date"
   email_or_password_not_true: "Email or password not true"
+  must_small: "must be smaller end date"
+  start_date: "Start date"
+  end_date: "End date"
+  bigger: "must be bigger current date"
+  cannot_empty: "can't empty"
+  booked_date_error: "It looks like the date you check in has been booked. Please try another day."
+  booking_success: "Booking success"
+  search: "Search"
+  please_log_in: "Please log in"
+  date_search_errors: "It looks like the date you input not true"
+  room_not_found: "Room not found !"
+  activerecord:
+    models:
+      user: "User"
+      booking: "Booking"
+      customer: "Customer"
+      room: "Room"
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        address: "Address"
+        id_card: "ID_card"
+      booking:
+        start_date: "Start date"
+        end_date: "End date"
