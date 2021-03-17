@@ -1,0 +1,27 @@
+<section class="banner_area">
+  <div class="booking_table d_flex align-items-center">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+      <div class="banner_content text-center">
+        <% provide :title, t("register") %>
+        <% provide(:button_text, t("submit")) %>
+        <div style="">
+          <div class="container">
+            <div class="d-flex justify-content-center h-100">
+              <div class="card" style="height: auto; margin-top: 8rem">
+                <div class="card-header">
+                  <h3><%= t("register")%></h3>
+                </div>
+                <div class="card-body">
+                  <%= render "users/form" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hotel_booking_area position">
+  </div>
+</section>
