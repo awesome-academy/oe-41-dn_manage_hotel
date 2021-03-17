@@ -18,6 +18,6 @@ class RoomsController < ApplicationController
   private
 
   def booking_at sdate, edate
-    Booking.pending.rooms_booked sdate, edate
+    Booking.get_room_ids.rooms_booked sdate, edate
   end
 end
