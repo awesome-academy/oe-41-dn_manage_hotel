@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :current_date, only: :show
+  before_action :update_bookings
   before_action :load_date_params, only: :show
 
   def show
@@ -18,6 +19,11 @@ class RoomsController < ApplicationController
   private
 
   def booking_at sdate, edate
-    Booking.get_room_ids.rooms_booked sdate, edate
+    Booking.select(:room_id).not_delete.rooms_booked sdate, edate
+  end
+
+  def update_bookings
+    bookings = Booking.pending.update_status_list
+    bookings.each(&:rejected!)
   end
 end

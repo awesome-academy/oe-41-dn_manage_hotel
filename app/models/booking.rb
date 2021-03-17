@@ -14,8 +14,6 @@ class Booking < ApplicationRecord
     .where("(?)<=end_date and(?)>=start_date", start_date, end_date)
   end)
 
-  scope :get_room_ids, ->{select(:room_id).not_delete}
-
   scope :not_delete, ->{where(deleted: 0)}
 
   scope :sort_by_id, ->{order(id: :desc)}
@@ -23,6 +21,10 @@ class Booking < ApplicationRecord
   scope :booking_of_room_at, (lambda do |start_date, end_date, room_id|
     pending.or(payed).where(room_id: room_id)
     .where("end_date <= (?) and start_date >= (?)", end_date, start_date)
+  end)
+
+  scope :update_status_list, (lambda do
+    where("created_at < ?", 24.hours.ago)
   end)
 
   def check_date_booking?

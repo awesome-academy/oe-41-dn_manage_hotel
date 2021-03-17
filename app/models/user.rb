@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  enum role: {admin: 1, staff: 2, customer: 3}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   has_many :bookings, dependent: :restrict_with_exception
   validates :name, presence: true
