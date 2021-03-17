@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       login @user
       redirect_back_or users_path
     else
-      flash.now[:warnng] = t "email_or_password_not_true"
+      flash.now[:warning] = t "email_or_password_not_true"
       render :new
     end
   end

@@ -33,5 +33,10 @@
 </section>
 <!--================ Accomodation Area  =================-->
 <section class="accomodation_area section_gap">
-  <%= render "rooms/rooms" %>
+  <div class="col-sm-12">
+    <%= render "rooms/rooms" %>
+  </div>
+  <div class="col-sm-12" style="display: flex; justify-content: center; margin-top: 3rem">
+    <%= will_paginate @rooms, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+  </div>
 </section>

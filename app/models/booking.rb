@@ -3,10 +3,11 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :customer
   belongs_to :room
-  validate :check_date_booking?, :check_room_can_booking
-  validate :compare_current_date
+  validate :check_date_booking?, on: :create
+  validate :compare_current_date, on: :create
   validates_associated :customer
   accepts_nested_attributes_for :customer
+  validate :check_room_can_booking, on: :create
 
   scope :rooms_booked, (lambda do |start_date, end_date|
     get_room_ids
