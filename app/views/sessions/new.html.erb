@@ -1,0 +1,27 @@
+<section class="banner_area">
+  <div class="booking_table d_flex align-items-center">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+      <div class="banner_content text-center">
+        <% provide :title, t("login") %>
+        <% provide(:button_text, t("login")) %>
+        <div style="">
+          <div class="container">
+            <div class="d-flex justify-content-center h-100">
+              <div class="card" style="height: auto; margin-top: 8rem; background-color: #000!important; opacity: 0.7 ">
+                <div class="card-header">
+                  <h3><%= t("login")%></h3>
+                </div>
+                <div class="card-body">
+                  <%= render "sessions/login" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hotel_booking_area position">
+  </div>
+</section>

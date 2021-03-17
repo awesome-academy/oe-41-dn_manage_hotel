@@ -20,23 +20,23 @@
               <%= t("languages") %>
             </a>
             <ul class="dropdown-menu">
-              <li class="nav-item">
-                <%= link_to t("english"), locale: :en, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to t("vietnamese"), locale: :vi, class: "nav-link" %>
-              </li>
-            </ul>
-          </li>          <li class="nav-item"><a class="nav-link" href="contact.html"><%= t("contact") %></a></li>
-          <li class="nav-item submenu dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
-              <%= t("current_user") %>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
-              <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to t("english"), locale: :en, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to t("vietnamese"), locale: :vi, class: "nav-link" %></li>
             </ul>
           </li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><%= t("contact") %></a></li>
+          <% if logined? %>
+            <li class="nav-item submenu dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
+                <%= @current_user.name %>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to t("logout"), logout_path, class: "nav-link" %></li>
+              </ul>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>
