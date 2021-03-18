@@ -11,19 +11,30 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
         <ul class="nav navbar-nav menu_nav ml-auto">
-          <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html"><%= t "room_list" %></a></li>
-          <li class="nav-item"><a class="nav-link" href="accomodation.html">Accomodation</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html"><%= t "gallery" %></a></li>
-          <li class="nav-item"><a class="nav-link" href="elements.html">Elemests</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item active"><%= link_to t("home"), root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to t("room_list"), rooms_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to t("accomodation"), root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to t("gallery"), root_path, class: "nav-link" %></a></li>
           <li class="nav-item submenu dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
-              Current user
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <%= t("languages") %>
             </a>
             <ul class="dropdown-menu">
-              <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-              <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
+              <li class="nav-item">
+                <%= link_to t("english"), locale: :en, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t("vietnamese"), locale: :vi, class: "nav-link" %>
+              </li>
+            </ul>
+          </li>          <li class="nav-item"><a class="nav-link" href="contact.html"><%= t("contact") %></a></li>
+          <li class="nav-item submenu dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>
+              <%= t("current_user") %>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
             </ul>
           </li>
         </ul>

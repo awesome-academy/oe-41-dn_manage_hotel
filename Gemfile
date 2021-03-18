@@ -5,6 +5,7 @@ ruby "2.7.0"
 
 gem "rails", "~> 6.1.3"
 gem "rails-i18n"
+gem "config"
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
 gem "sass-rails", ">= 6"
