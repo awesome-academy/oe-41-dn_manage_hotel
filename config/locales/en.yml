@@ -6,4 +6,9 @@ en:
   end_start: "Departure date"
   search: "Search"
   price: "Price"
-
+  login: "Login"
+  email: "Email"
+  email-label: "EMAIL"
+  password: "Password"
+  password-label: "PASSWORD"
+  remember_me: "Remember me"
