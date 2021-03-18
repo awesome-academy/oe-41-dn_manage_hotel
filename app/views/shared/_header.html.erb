@@ -22,7 +22,7 @@
   <div class="container main-menu">
     <div class="row align-items-center justify-content-between d-flex">
       <div id="logo">
-        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+        <a href="index.html"><img src="/img/logo.png" alt="" title="" /></a>
       </div>
       <nav id="nav-menu-container">
         <ul class="nav-menu">
@@ -32,9 +32,9 @@
           <li>
              <%= link_to t("rooms"), rooms_path %>
           </li>
-          <li><a href="packages.html">About</a></li>
-          <li><a href="hotels.html">Contact</a></li>
-          <li class="menu-has-children"><a href="">Language</a>
+          <li><%= link_to t("about"), root_path %></li>
+          <li><%= link_to t("contact"), root_path %></li>
+          <li class="menu-has-children"><a href=""><%= t("language")%></a>
             <ul>
               <li><%= link_to t("eng"), locale: :en %></li>
               <li><%= link_to t("vie"), locale: :vi %></li>
@@ -48,8 +48,8 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to t("login"), login_path %></li>
-            <li><%= link_to t("register"), login_path %></li>
+            <li><%= link_to t("login"), new_session_path %></li>
+            <li><%= link_to t("register"), new_user_path %></li>
           <% end %>
         </ul>
       </nav><!-- #nav-menu-container -->

@@ -3,29 +3,29 @@
   <div class="container">
     <div class="row fullscreen align-items-center justify-content-between">
       <div class="main">
-        <%= form_for :session, url: login_path do |f|%>
+        <%= form_for :session, url: sessions_path do |f|%>
           <h1><%= t("login")%></h1>
           <div class="inset">
             <p>
-             <%= f.label :email, t("email-label") %>
-             <%= f.text_field :email, class: "form-control", placeholder: t("email") %>
-           </p>
-           <p>
-            <%= f.label :password, t("password-label") %>
-             <%= f.password_field :password, class: "form-control", placeholder: t("password") %>
-          </p>
-          <p>
-            <%= f.check_box :remember_me %>
-            <%= t("remember_me")%>
-          </p>
-        </div>
+              <%= f.label :email, t("email-label") %>
+              <%= f.text_field :email, class: "form-control", placeholder: t("email") %>
+            </p>
+            <p>
+              <%= f.label :password, t("password-label") %>
+              <%= f.password_field :password, class: "form-control", placeholder: t("password") %>
+            </p>
+            <p>
+              <%= f.check_box :remember_me %>
+              <%= t("remember_me")%>
+            </p>
+          </div>
 
-        <p class="p-container">
-          <span><a href="#">Forgot password ?</a></span>
-          <%= f.submit t("login"), class: "btn float-right login_btn" %>
-        </p>
-      <% end %>
+          <p class="p-container">
+            <span><a href="#">Forgot password ?</a></span>
+            <%= f.submit t("login"), class: "btn float-right login_btn" %>
+          </p>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </section>

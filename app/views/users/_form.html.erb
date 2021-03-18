@@ -1,0 +1,45 @@
+<%= form_for @user, url: users_path do |f|%>
+  <h1><%= t("register")%></h1>
+  <div class="inset">
+    <div class="name">
+      <p>
+        <i class="fa fa-user"></i>
+        <%= f.text_field :name, class: "form-control",placeholder: t("name")  %>
+      </p>
+    </div>
+    <%= render "shared/error_messages", object: f.object , attr: :name %>
+    <p>
+      <i class="fa fa-envelope"></i>
+      <%= f.text_field :email, class: "form-control",placeholder: t("email")  %>
+    </p>
+    <%= render "shared/error_messages", object: f.object , attr: :email %>
+    <p>
+      <i class="fa fa-key"></i>
+      <%= f.password_field :password, class: "form-control",placeholder: t("password") %>
+    </p>
+    <%= render "shared/error_messages", object: f.object , attr: :password %>
+    <p>
+      <i class="fa fa-repeat"></i>
+      <%= f.password_field :password_confirmation, class: "form-control",placeholder: t("confirmation") %>
+    </p>
+    <%= render "shared/error_messages", object: f.object , attr: :password_confirmation %>
+    <p style="margin-bottom: 0rem">
+      <i class="fa fa-birthday-cake"></i>
+      <%= f.date_field :birthday, class: "form-control",placeholder: t("birthday")  %>
+    </p>
+    <%= render "shared/error_messages", object: f.object , attr: :birthday %>
+    <p>
+      <i class="fa fa-address-book"></i>
+      <%= f.text_field :address, class: "form-control",placeholder: t("address")  %>
+    </p>
+    <%= render "shared/error_messages", object: f.object , attr: :address %>
+    <p>
+      <i class="fa fa-id-card"></i>
+      <%= f.text_field :id_card, class: "form-control",placeholder: t("id_card")  %>
+    </p>
+    <%= render "shared/error_messages", object: f.object , attr: :id_card %>
+  </div>
+  <p class="p-container">
+    <%= f.submit t("submit"), class: "btn float-right login_btn" %>
+  </p>
+<% end %>

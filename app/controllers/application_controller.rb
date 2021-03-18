@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
     store_location
     flash[:danger] = t "please_log_in"
-    redirect_back_or root_path
+    redirect_to new_session_path
   end
 
   private
