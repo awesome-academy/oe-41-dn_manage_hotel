@@ -1,0 +1,33 @@
+<%= form_for @user, url: signup_path, method: :post do |f| %>
+  <form>
+    <div class="form-group">
+      <%= f.text_field :name, class: "form-control",placeholder: t("name")  %>
+      <%= render "shared/error_messages", object: f.object , attr: :name %>
+    </div>
+    <div class="form-group">
+      <%= f.email_field :email, class: "form-control",placeholder: t("email")  %>
+      <%= render "shared/error_messages", object: f.object , attr: :email %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, class: "form-control",placeholder: t("password") %>
+      <%= render "shared/error_messages", object: f.object , attr: :password %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, class: "form-control",placeholder: t("confirmation") %>
+      <%= render "shared/error_messages", object: f.object , attr: :password_confirmation %>
+    </div>
+    <div class="form-group">
+      <%= f.date_field :birthday, class: "form-control",placeholder: t("birthday")  %>
+      <%= render "shared/error_messages", object: f.object , attr: :birthday %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :address, class: "form-control",placeholder: t("address") %>
+      <%= render "shared/error_messages", object: f.object , attr: :address %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :id_card, class: "form-control",placeholder: t("id_card")  %>
+      <%= render "shared/error_messages", object: f.object , attr: :id_card %>
+    </div>
+    <%= f.submit yield(:button_text), class: "btn btn-warning float-right login_btn" %>
+  </form>
+<% end %>
