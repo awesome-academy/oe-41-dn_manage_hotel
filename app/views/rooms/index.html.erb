@@ -1,0 +1,52 @@
+<section class="about-banner relative">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+      <div class="about-content col-lg-12">
+        <h1 class="text-white">
+          <%= t("rooms")%>
+        </h1>
+        <p class="text-white link-nav">
+          <%= link_to t("home"), root_path %>
+          <span class="lnr lnr-arrow-right"></span>
+          <%= link_to t("rooms"), rooms_path %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End banner Area -->
+
+<!-- Start destinations Area -->
+<section class="destinations-area section-gap">
+  <div class="container">
+    <div class="row d-flex justify-content-center form_search">
+      <div class=" pb-40 col-lg-4" style="padding-left: 140px; padding-top: 4px">
+        <h3><%= t("find_room")%></h3>
+      </div>
+      <div class=" pb-40 col-lg-8">
+        <div id="mc_embed_signup">
+            <%= form_with url: rooms_path, method: :get do |f| %>
+              <div class="input-group d-flex flex-row">
+                <%= f.text_field :start_date, class: "text-search",
+                                              onfocus: "(this.type = 'date')",
+                                              placeholder: t("date_start") %>
+                <%= f.text_field :end_date, class: "text-search",
+                                            onfocus: "(this.type = 'date')",
+                                            placeholder: t("end_start") %>
+                <%= f.submit t("search"), class: "btn btn-primary" %>
+              </div>
+              <div class="mt-10 info"></div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    <div class="row rooms">
+      <%= render @rooms%>
+    </div>
+    <div class="paging">
+      <%= will_paginate @rooms, theme: 'twitter-bootstrap-4',
+                                pagination_class: "pagination-sm"  %>
+    </div>
+  </div>
+</section>

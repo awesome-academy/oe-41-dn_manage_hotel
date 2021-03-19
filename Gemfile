@@ -4,6 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.7.0"
 
 gem "bootsnap", ">= 1.4.4", require: false
+gem "config"
 gem "jbuilder", "~> 2.7"
 gem "mysql2", "~> 0.5"
 gem "puma", "~> 5.0"
@@ -12,6 +13,8 @@ gem "rspec-rails", "~> 4.0.1"
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
+gem "will_paginate", "3.1.7"
+gem "will_paginate-bootstrap4"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

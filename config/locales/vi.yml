@@ -1,1 +1,8 @@
 vi:
+  home: "Trang chủ"
+  rooms: "Phòng"
+  find_room: "Tìm phòng"
+  date_start: "Ngày đến"
+  end_start: "Ngày đi"
+  search: "Tìm kiếm"
+  price: "Giá"
