@@ -1,7 +1,7 @@
 <% if object.errors[attr].any? %>
   <div id="error_explanation">
     <div class="alert alert-danger error_div">
-    <%= attr %>
+    <%= t("#{attr}") %>
     <%= object.errors[attr].first %>
   </div>
   </div>
