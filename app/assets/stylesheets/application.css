@@ -14,7 +14,7 @@
  *= require_self
  */
 .form_search{
-  padding-top: 11px;
+  padding-top: 8px;
   box-shadow: 1px 1px 4px 1px;
   height: 61px;
   margin-bottom: 60px;
@@ -35,3 +35,4 @@
 .paging{
   margin-left: 475px
 }
+
