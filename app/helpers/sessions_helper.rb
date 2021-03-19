@@ -25,4 +25,8 @@ module SessionsHelper
       default)
     session.delete(:forwarding_url)
   end
+
+  def format_date date
+    date.strftime("%d/%m/%Y")
+  end
 end

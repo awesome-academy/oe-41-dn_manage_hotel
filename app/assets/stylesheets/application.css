@@ -356,3 +356,16 @@
 .thumb img{
   border-radius: 26px;
 }
+
+.table-dark{
+  border-radius: 20px;
+  opacity: 0.9;
+}
+
+.page-item{
+  background-color: #fff;
+}
+
+/*.index{
+*/  height: 500px !important
+}

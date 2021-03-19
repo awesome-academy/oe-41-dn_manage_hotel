@@ -1,0 +1,15 @@
+<tr>
+  <th scope="row"><%=booking_counter + 1 + @index%></th>
+  <td><%= booking.room_name %></td>
+  <td><%= format_date(booking.start_date) %></td>
+  <td><%= format_date(booking.end_date) %></td>
+  <td><%= number_to_currency(booking.room_price) %></td>
+  <td><%= booking.customer_name %></td>
+  <td><%= booking.status %></td>
+  <td>
+    <%= link_to "", user_bookings_path(user_id: @current_user.id),
+                    class: "fa fa-window-close delete",
+                    title: t("cancel"), method: :delete,
+                    data: {confirm: t("sure_cancel")} %>
+   </td>
+ </tr>

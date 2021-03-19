@@ -1,12 +1,12 @@
 <%= form_for([:room, @booking]) do |f| %>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <%= f.label :start_date, t("date_start"), class: "label-booking" %>
+      <%= f.label :start_date, t("start_date"), class: "label-booking" %>
       <%= f.date_field :start_date, value: @date_start, class: "form-control" %>
       <%= render "shared/error_messages", object: f.object , attr: :start_date %>
     </div>
     <div class="form-group col-md-6">
-      <%= f.label :end_date, t("end_start"), class: "label-booking" %>
+      <%= f.label :end_date, t("end_date"), class: "label-booking" %>
       <%= f.date_field :end_date, value: @date_end, class: "form-control" %>
       <%= render "shared/error_messages", object: f.object , attr: :end_date %>
     </div>

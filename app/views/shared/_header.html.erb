@@ -44,6 +44,7 @@
             <li class="menu-has-children"><a href=""><%=current_user.name%></a>
               <ul>
                 <li><%= link_to t("profile"), locale:"en" %></li>
+                <li><%= link_to t("bookeds"), user_bookings_path(user_id: @current_user.id) %></li>
                 <li><%= link_to t("logout"), logout_path %></li>
               </ul>
             </li>
