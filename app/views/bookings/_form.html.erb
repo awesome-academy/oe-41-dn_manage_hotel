@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= image_tag @room.image ||= "/image/room2.jpg", class: "image-room" %>
+  </div>
+  <div class="col-sm-6">
+    <%= form_for ([:room ,@booking])  do |f|%>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.date_field :start_date, value: params[:start_date], class: "form-control" %>
+          <%= render "shared/error_messages", object: f.object , attr: :start_date %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.date_field :end_date, value: params[:end_date], class: "form-control" %>
+          <%= render "shared/error_messages", object: f.object , attr: :end_date %>
+        </div>
+      </div>
+      <%= f.fields_for :customer do |add| %>
+        <div class="form-group">
+          <%= add.text_field :name, value: current_user.name, class: "form-control", placeholder: t("name") %>
+          <%= render "shared/error_messages", object: add.object , attr: :name %>
+        </div>
+        <div class="form-group">
+          <%= add.date_field :birthday, value: current_user.birthday, class: "form-control", placeholder: t("birthday") %>
+          <%= render "shared/error_messages", object: add.object , attr: :birthday %>
+        </div>
+        <div class="form-group">
+          <%= add.text_field :address, value: current_user.address, class: "form-control", placeholder: t("address") %>
+          <%= render "shared/error_messages", object: add.object , attr: :address %>
+        </div>
+        <div class="form-group">
+          <%= add.text_field :id_card, value: current_user.id_card, class: "form-control", placeholder: t("id_card") %>
+          <%= render "shared/error_messages", object: add.object , attr: :id_card %>
+        </div>
+      <% end %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.submit yield(:button_text), class: "btn btn-warning login_btn" %>
+    <% end %>
+  </div>
+</div>

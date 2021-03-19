@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
+    resources :room do
+        resources :bookings
+    end
     namespace :admin do
     end
   end

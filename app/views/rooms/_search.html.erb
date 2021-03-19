@@ -1,11 +1,14 @@
+<% provide(:button_text, t("search")) %>
 <%= form_with url: rooms_path, method: :get, class: "form-search"  do |f| %>
   <div class="col-md-4">
-    <%= f.text_field :start_date, class: "form-control", onfocus: "(this.type='date')", placeholder: t("arrival_date") %>
+    <p><%= t("arrival_date") %></p>
+    <%= f.date_field :start_date, class: "form-control", value: params[:start_date], placeholder: t("arrival_date") %>
   </div>
   <div class="col-md-4">
-    <%= f.text_field :end_date, class: "form-control", onfocus: "(this.type='date')", placeholder:  t("departure_date") %>
+    <p><%= t("departure_date") %></p>
+    <%= f.date_field :end_date, class: "form-control", value: params[:end_date], placeholder:  t("departure_date") %>
   </div>
   <div class="col-md-4">
-    <%= f.submit t("submit") , class: "book_now_btn button_hover" %>
+    <%= f.submit yield(:button_text) , class: "book_now_btn button_hover button_search" %>
   </div>
 <% end %>
