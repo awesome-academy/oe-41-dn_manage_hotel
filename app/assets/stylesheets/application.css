@@ -355,6 +355,7 @@
 
 .thumb img{
   border-radius: 26px;
+  height: 250px
 }
 
 .table-dark{
@@ -364,8 +365,4 @@
 
 .page-item{
   background-color: #fff;
-}
-
-/*.index{
-*/  height: 500px !important
 }

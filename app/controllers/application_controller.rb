@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path
   end
 
+  def update_status_booked
+    bookeds = Booking.not_delete.check_time_create_booked
+    bookeds.pending.update_all(status: Booking.statuses[:rejected])
+  end
+
   private
 
   def set_locale
