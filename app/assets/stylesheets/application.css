@@ -119,11 +119,12 @@
     padding-bottom:9px;
 }
 
+.main input[type=date],
 .main input[type=text],
 .main input[type=password] {
   font-family: 'Open Sans', sans-serif;
   width:100%;
-  padding:8px 5px;
+  padding:8px 34px 8px 15px;
   background: rgb(167,167,167); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(167,167,167,1) 0%, rgba(181,181,181,1) 21%, rgba(228,228,228,1) 79%, rgba(242,242,242,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(167,167,167,1)), color-stop(21%,rgba(181,181,181,1)), color-stop(79%,rgba(228,228,228,1)), color-stop(100%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
@@ -310,4 +311,26 @@
   .copy-right p {
   padding:1em 0;
   }
+}
+
+.inset .fa{
+  position: absolute;
+  margin-left: 324px;
+  margin-top: 7px;
+  font-size: 22px !important;
+  color: #62b11c;
+}
+
+.error_div{
+  padding: 0!important;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  height: auto;
+  margin-top: 3px;
+  text-overflow: hidden;
+}
+
+.name .field_with_errors{
+  margin-top: -16px;
 }
