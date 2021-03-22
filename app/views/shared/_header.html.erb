@@ -40,8 +40,17 @@
               <li><%= link_to t("vie"), locale: :vi %></li>
             </ul>
           </li>
-          <li><a href="packages.html">Login</a></li>
-          <li><a href="contact.html">Register</a></li>
+          <% if logged_in? %>
+            <li class="menu-has-children"><a href=""><%=current_user.name%></a>
+              <ul>
+                <li><%= link_to t("profile"), locale:"en" %></li>
+                <li><%= link_to t("logout"), logout_path %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to t("login"), login_path %></li>
+            <li><%= link_to t("register"), login_path %></li>
+          <% end %>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
