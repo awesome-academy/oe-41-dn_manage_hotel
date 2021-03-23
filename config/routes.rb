@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :sessions, only: %i(new create)
     resources :users, only: %i(new create)
     resources :rooms, only: :index
+    resources :rooms do
+      resources :bookings
+    end
     namespace :admin do
     end
   end

@@ -24,3 +24,8 @@ en:
   eng: "English"
   vie: "Vietnamese"
   language: "Language"
+  please_log_in: "Please login"
+  name_cus: "Customer name"
+  room_not_found: "Room not found"
+  created_success: "Booking room success"
+  created_failed: "Booking room failed"

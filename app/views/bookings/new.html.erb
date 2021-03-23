@@ -1,0 +1,27 @@
+<section class="banner-area relative" style="height: 835px">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="fullscreen align-items-center justify-content-between">
+      <div class="row row-booking">
+        <div class="col-md-1"></div>
+        <div class="col-md-4" style="margin-top: 50px">
+          <div class="single_offers">
+            <div class="about_thumb booking">
+              <%= image_tag @room.image || "/img/room.jpg", alt: "", class: "img-room-home" %>
+            </div>
+            <h3>Up to 35% savings on Club <br>rooms and Suites</h3>
+            <ul>
+              <li><%= @room.name %></li>
+              <li>Luxaries condition</li>
+              <li>3 Adults & 2 Children size</li>
+              <li>Sea view side</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <%= render "bookings/form"%>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </section>

@@ -24,3 +24,8 @@ vi:
   eng: "Tiếng anh"
   vie: "Tiếng việt"
   language: "Ngôn ngữ"
+  please_log_in: "Vui lòng đăng nhập"
+  name_cus: "Tên khách hàng"
+  room_not_found: "Không tìm thấy phòng này"
+  created_success: "Đặt phòng thành công"
+  created_failed: "Đặt phòng thất bại"
