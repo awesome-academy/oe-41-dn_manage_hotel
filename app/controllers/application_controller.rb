@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_user?
+    store_location
     return if logined?
 
     redirect_to login_path

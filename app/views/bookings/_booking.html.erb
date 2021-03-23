@@ -1,0 +1,15 @@
+<tr>
+  <td><%= booking.room.name %></td>
+  <td><%= format_date booking.start_date %></td>
+  <td><%= format_date booking.end_date %></td>
+  <td><%= booking.status %></td>
+  <td>
+    <% if booking.pending? %>
+      <%= link_to t("pay"), root_path %>
+    |
+      <%= link_to t("cancel"), booking_path(id: booking), method: :put, data: {confirm: t("are_you_sure")} %>
+    <% else %>
+      <%= link_to t("delete"), root_path,  data: {confirm: t("are_you_sure")} %>
+    <% end %>
+  </td>
+</tr>

@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :customer
   belongs_to :room
-  validate :check_date_booking?
+  validate :check_date_booking?, :check_room_can_booking
   validate :compare_current_date
   validates_associated :customer
   accepts_nested_attributes_for :customer
@@ -17,8 +17,12 @@ class Booking < ApplicationRecord
 
   scope :not_delete, ->{where(deleted: 0)}
 
-  scope :check_can_book, (lambda do |start_date, end_date, room|
-    room.bookings.not_delete
+  scope :sort_by_id, ->{order(id: :desc)}
+
+  scope :user_booking, ->{not_delete.includes(:user, :customer, :room)}
+
+  scope :booking_of_room_at, (lambda do |start_date, end_date, room_id|
+    not_delete.pending.where(room_id: room_id)
     .where("end_date <= (?) and start_date >= (?)", end_date, start_date)
   end)
 
@@ -35,5 +39,13 @@ class Booking < ApplicationRecord
     return errors.add :start_date, I18n.t("bigger") if start_date < cur_day
 
     return errors.add :end_date, I18n.t("bigger") if end_date < cur_day
+  end
+
+  def check_room_can_booking
+    bookings = Booking.booking_of_room_at start_date, end_date, room_id
+    return if bookings.blank?
+
+    errors.add :start_date, I18n.t("date_exists")
+    errors.add :end_date, I18n.t("date_exists")
   end
 end

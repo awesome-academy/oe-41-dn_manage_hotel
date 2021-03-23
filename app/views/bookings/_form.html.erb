@@ -32,8 +32,6 @@
           <%= render "shared/error_messages", object: add.object , attr: :id_card %>
         </div>
       <% end %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :room_id, value: @room.id %>
       <%= f.submit yield(:button_text), class: "btn btn-warning login_btn" %>
     <% end %>
   </div>

@@ -21,7 +21,7 @@
             </a>
             <ul class="dropdown-menu">
               <li class="nav-item">
-                <%= link_to t("english"), locale: :en%>
+                <%= link_to t("english"), locale: :en %>
               </li>
               <li class="nav-item">
                 <%= link_to t("vietnamese"), locale: :vi %>
@@ -36,7 +36,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
-                <li class="nav-item"><%= link_to t("home"), root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to t("my_booking"), bookings_path, class: "nav-link" %></li>
                 <li class="nav-item"><%= link_to t("logout"), logout_path, class: "nav-link" %></li>
               </ul>
             </li>
