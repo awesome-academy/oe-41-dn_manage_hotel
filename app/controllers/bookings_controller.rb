@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :logged_in_user, only: %i(new create)
+  before_action :logged_in_user, only: %i(new create index)
   before_action :load_room, only: %i(new create)
 
   def new
@@ -20,6 +20,14 @@ class BookingsController < ApplicationController
       @date_start = params[:booking][:start_date]
       render :new
     end
+  end
+
+  def index
+    @user_bookeds = @current_user.bookings.user_bookeds.sort_by_created
+                                 .paginate(page: params[:page])
+                                 .per_page(Settings.paging_limit)
+    params[:page] ||= 1
+    @index = (params[:page].to_i - 1) * Settings.paging_limit
   end
 
   private

@@ -7,8 +7,13 @@ class Booking < ApplicationRecord
   belongs_to :customer
   belongs_to :room
   accepts_nested_attributes_for :customer
+  delegate :name, to: :user, prefix: :user
+  delegate :name, to: :customer, prefix: :customer
+  delegate :name, :price, to: :room, prefix: :room
 
   scope :not_delete, ->{where(deleted: 0)}
+
+  scope :sort_by_created, ->{order(created_at: :desc)}
 
   scope :rooms_booked, (lambda do |start_date, end_date|
     select(:room_id).not_delete
@@ -18,6 +23,10 @@ class Booking < ApplicationRecord
   scope :room_booked_by_date, (lambda do |start_date, end_date, room_id|
     not_delete.where(room_id: room_id)
     .where("start_date>= ? and end_date <= ?", start_date, end_date)
+  end)
+
+  scope :user_bookeds, (lambda do
+    not_delete.includes(:user, :customer, :room)
   end)
 
   def check_start_date
