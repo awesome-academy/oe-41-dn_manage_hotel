@@ -5,12 +5,19 @@ class RoomsController < ApplicationController
   def show
     sdate = params[:start_date].to_date
     edate = params[:end_date].to_date
-    if current_date > sdate || current_date > edate || sdate > edate
-      flash.now[:warning] = t "booked_date_error"
-      return @rooms = []
-
+    if current_date > sdate || sdate > edate
+      flash[:warning] = t "booked_date_error"
+      redirect_to rooms_path
     end
-    booked_in_time = Booking.pending.rooms_booked sdate, edate
-    @rooms = Room.not_in_ids booked_in_time
+    booked_in_time = booking_at sdate, edate
+    @rooms = Room.not_in_ids(booked_in_time)
+                 .sort_by_price
+                 .paginate(page: params[:page], per_page: Settings.limit_page)
+  end
+
+  private
+
+  def booking_at sdate, edate
+    Booking.pending.rooms_booked sdate, edate
   end
 end

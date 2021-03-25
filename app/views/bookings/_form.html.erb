@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-sm-6">
-    <%= image_tag @room.image ||= "/image/room2.jpg", class: "image-room" %>
+    <%= image_tag @room.image || "/image/room1.jpg", class: "image-room" %>
+    <h3><%= @room.name %></h3>
+    <h5><%= @room.type_name %></h5>
+    <h5><%= number_to_currency @room.price %></h5>
+    <h5><%= @room.description %></h5>
   </div>
   <div class="col-sm-6">
     <%= form_for ([:room ,@booking])  do |f|%>
