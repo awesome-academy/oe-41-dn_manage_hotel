@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   before_action :logged_user?, only: %i(new create)
-  before_action :load_room, only: %i(new create)
   before_action :load_date_params
-  before_action :load_booking, only: :update
+  before_action :load_room, only: %i(new create)
+  before_action :load_booking, only: %i(update)
 
   def new
     @booking = current_user.bookings.new
@@ -21,7 +21,8 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = current_user.bookings.not_delete.sort_by_id.user_booking
+    @bookings = current_user.bookings.not_delete.sort_by_id
+                            .includes(:user, :customer, :room)
                             .paginate(page: params[:page])
                             .per_page(Settings.per_page)
     return if @bookings

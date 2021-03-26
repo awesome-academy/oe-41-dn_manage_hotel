@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  enum status: {pending: 0, payed: 1, cancel: 2}
+  enum status: {pending: 0, payed: 1, cancel: 2, rejected: 3}
   belongs_to :user
   belongs_to :customer
   belongs_to :room
@@ -10,7 +10,7 @@ class Booking < ApplicationRecord
   validate :check_room_can_booking, on: :create
 
   scope :rooms_booked, (lambda do |start_date, end_date|
-    get_room_ids
+    pending.or(payed)
     .where("(?)<=end_date and(?)>=start_date", start_date, end_date)
   end)
 
@@ -20,10 +20,8 @@ class Booking < ApplicationRecord
 
   scope :sort_by_id, ->{order(id: :desc)}
 
-  scope :user_booking, ->{not_delete.includes(:user, :customer, :room)}
-
   scope :booking_of_room_at, (lambda do |start_date, end_date, room_id|
-    not_delete.pending.where(room_id: room_id)
+    pending.or(payed).where(room_id: room_id)
     .where("end_date <= (?) and start_date >= (?)", end_date, start_date)
   end)
 
@@ -43,7 +41,8 @@ class Booking < ApplicationRecord
   end
 
   def check_room_can_booking
-    bookings = Booking.booking_of_room_at start_date, end_date, room_id
+    bookings = Booking.not_delete
+                      .booking_of_room_at start_date, end_date, room_id
     return if bookings.blank?
 
     errors.add :start_date, I18n.t("date_exists")
