@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :bookings
     end
     namespace :admin do
+      root to: "bookings#index"
     end
   end
 end
