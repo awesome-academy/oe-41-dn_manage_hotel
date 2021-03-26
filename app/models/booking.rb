@@ -1,8 +1,9 @@
 class Booking < ApplicationRecord
-  enum status: {pending: 0, payed: 1, cancel: 2}
+  enum status: {pending: 0, payed: 1, cancel: 2, rejected: 3}
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validate :check_start_date, :check_end_date, :check_room_avalable
+  validate :check_start_date, :check_end_date
+  validate :check_room_avalable, on: :create
   belongs_to :user
   belongs_to :customer
   belongs_to :room
@@ -16,17 +17,21 @@ class Booking < ApplicationRecord
   scope :sort_by_created, ->{order(created_at: :desc)}
 
   scope :rooms_booked, (lambda do |start_date, end_date|
-    select(:room_id).not_delete
+    select(:room_id).pending.or(payed)
     .where("(?)<=end_date and(?)>=start_date", start_date, end_date)
   end)
 
   scope :room_booked_by_date, (lambda do |start_date, end_date, room_id|
-    not_delete.where(room_id: room_id)
+    where(room_id: room_id).pending.or(payed)
     .where("start_date>= ? and end_date <= ?", start_date, end_date)
   end)
 
   scope :user_bookeds, (lambda do
-    not_delete.includes(:user, :customer, :room)
+    includes(:user, :customer, :room)
+  end)
+
+  scope :check_time_create_booked, (lambda do
+    where(status: 0).where("created_at < ?", 24.hours.ago)
   end)
 
   def check_start_date
@@ -46,10 +51,15 @@ class Booking < ApplicationRecord
   end
 
   def check_room_avalable
-    bookings = Booking.room_booked_by_date start_date, end_date, room_id
+    bookings = Booking.not_delete
+                      .room_booked_by_date(start_date, end_date, room_id)
     return if bookings.blank?
 
     errors.add :start_date, I18n.t("booking_date_exist")
     errors.add :end_date, I18n.t("booking_date_exist")
+  end
+
+  def update_delete_booked
+    update_column :deleted, 1
   end
 end
