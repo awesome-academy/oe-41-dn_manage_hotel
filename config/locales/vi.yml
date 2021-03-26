@@ -29,3 +29,5 @@ vi:
   room_not_found: "Không tìm thấy phòng này"
   created_success: "Đặt phòng thành công"
   created_failed: "Đặt phòng thất bại"
+  room_management: "Quản lý phòng"
+  action: "Tuỳ chọn"

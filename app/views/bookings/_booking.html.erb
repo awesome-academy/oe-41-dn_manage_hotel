@@ -6,14 +6,15 @@
   <td><%= number_to_currency(booking.room_price) %></td>
   <td><%= booking.customer_name %></td>
   <td><%= booking.status %></td>
-  <% if booking.pending?%>
-    <td>
-      <%= link_to t("edit"), user_cancel_booked_path(id: booking.id),
-                      method: :put,
-                      data: {confirm: t("sure_cancel")} %> |
-      <%= link_to t("cancel"), user_cancel_booked_path(id: booking.id),
-                      method: :put,
-                      data: {confirm: t("sure_cancel")} %>
-    </td>
-  <% end %>
+  <td>
+    <% if booking.pending?%>
+        <%= link_to t("edit"), user_cancel_booked_path(id: booking.id),
+                        method: :put,
+                        data: {confirm: t("sure_cancel")} %> |
+        <%= link_to t("cancel"), user_cancel_booked_path(id: booking.id),
+                        method: :put,
+                        data: {confirm: t("sure_cancel")} %>
+    <% end %>
+  </td>
 </tr>
+

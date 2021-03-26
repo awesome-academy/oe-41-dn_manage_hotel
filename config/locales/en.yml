@@ -29,3 +29,5 @@ en:
   room_not_found: "Room not found"
   created_success: "Booking room success"
   created_failed: "Booking room failed"
+  room_management: "Room Management"
+  action: "Action"

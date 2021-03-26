@@ -1,0 +1,43 @@
+<div class="content" style="padding-top: 0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4">
+        <form class="navbar-form">
+          <div class="input-group no-border">
+            <input type="text" value="" class="form-control" placeholder="Search...">
+            <button type="submit" class="btn btn-default btn-round btn-just-icon">
+              <i class="material-icons">search</i>
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title "><%= t("room_management")%></h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>#</th>
+                  <th><%= t("name") %></th>
+                  <th><%= t("price") %></th>
+                  <th style="width: 27%"><%= t("room_type") %></th>
+                  <th style="width: 15%"><%= t("name") %></th>
+                </thead>
+                <tbody>
+                  <%= render @rooms%>
+                </tbody>
+              </table>
+              <%= will_paginate @rooms, theme: "twitter-bootstrap-4",
+                                        pagination_class: "pagination-sm"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
