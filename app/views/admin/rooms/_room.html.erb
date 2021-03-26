@@ -1,0 +1,11 @@
+<tr>
+  <td><%= room_counter + 1 + @count %></td>
+  <td><%= image_tag room.image, class: "image_admin" %></td>
+  <td><%= room.name %></td>
+  <td><%= room.price %></td>
+  <td><%= room.room_type.name %></td>
+  <td>
+    <%= link_to t("edit"), root_path %> |
+    <%= link_to t("delete"), root_path %>
+  </td>
+</tr>

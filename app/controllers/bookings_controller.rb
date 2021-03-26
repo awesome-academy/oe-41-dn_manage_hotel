@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
   before_action :logged_user?, only: %i(new create)
-  before_action :load_date_params
+  before_action :update_bookings, only: :index
   before_action :load_room, only: %i(new create)
   before_action :load_booking, only: %i(update)
+  before_action :load_date_params
 
   def new
     @booking = current_user.bookings.new
@@ -42,20 +43,20 @@ class BookingsController < ApplicationController
 
   private
 
+  def load_booking
+    @booking = Booking.find_by id: params[:id]
+    return if @booking
+
+    redirect_to bookings_path
+    flash[:warning] = t "booking_not_found"
+  end
+
   def load_room
     @room = Room.find_by id: params[:room_id]
     return if @room
 
     flash[:warning] = t "room_not_found"
     redirect_to rooms_path
-  end
-
-  def load_booking
-    @booking = Booking.find_by id: params[:id]
-    return if @booking
-
-    flash[:warning] = t "booking_not_found"
-    redirect_to bookings_path
   end
 
   def booking_params

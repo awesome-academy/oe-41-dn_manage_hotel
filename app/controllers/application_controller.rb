@@ -23,8 +23,20 @@ class ApplicationController < ActionController::Base
     flash[:warning] = t "please_log_in"
   end
 
+  def admin?
+    return if current_user.admin? || current_user.staff?
+
+    flash[:warning] = t "not_permission"
+    redirect_to root_path
+  end
+
   def load_date_params
     params[:start_date] ||= current_date
     params[:end_date] ||= current_date
+  end
+
+  def update_bookings
+    bookings = Booking.pending.update_status_list
+    bookings.update_all(status: Booking.statuses[:cancel])
   end
 end
