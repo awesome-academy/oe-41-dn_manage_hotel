@@ -72,3 +72,5 @@ yarn-debug.log*
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+.framgia-ci-reports/rspec.html
+.rake_tasks~

@@ -25,11 +25,11 @@ class BookingsController < ApplicationController
   end
 
   def index
+    params[:page] ||= 1
     @user_bookeds = @current_user.bookings.not_delete
                                  .user_bookeds.sort_by_created
                                  .paginate(page: params[:page])
                                  .per_page(Settings.paging_limit)
-    params[:page] ||= 1
     @index = (params[:page].to_i - 1) * Settings.paging_limit
   end
 
